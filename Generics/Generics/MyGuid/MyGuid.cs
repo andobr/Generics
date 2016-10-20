@@ -15,21 +15,17 @@ namespace Generics
             var type = typeof(T);
 
             if (!typeDictionary.ContainsKey(type))
-            {
-                var guidDictionary = new Dictionary<Guid, object>();
-                guidDictionary[guid] = obj;
-                typeDictionary[type] = guidDictionary;
-            }
-            else
-                typeDictionary[type][guid] = obj;
+                typeDictionary[type] = new Dictionary<Guid, object>();
+
+            typeDictionary[type][guid] = obj;
             return obj;
         }
 
-        static public List<KeyValuePair<Guid, T>> GetAllPairsOfType<T>()
+        static public Dictionary<Guid, T> GetAllPairsOfType<T>()
         {
             if (typeDictionary.ContainsKey(typeof(T)))
-                return typeDictionary[typeof(T)].Select(x => new KeyValuePair<Guid, T>(x.Key, (T)x.Value)).ToList();
-            return new List<KeyValuePair<Guid, T>>();
+                return typeDictionary[typeof(T)].ToDictionary(x => x.Key, x => (T)x.Value);
+            return new Dictionary<Guid, T>();
         }
 
         static public object GetObjectByGuid<T>(Guid guid)

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Generics
 {
-    class Entity<TEngine, TEntity> 
+    class EntityAdder<TEngine> 
     {
-        public Processor<TEngine, TEntity, TLogger> With<TLogger>()
+        public LoggerAdder<TEngine, TEntity> For<TEntity>()
         {
-            return new Processor<TEngine, TEntity, TLogger>();
+            return new LoggerAdder<TEngine, TEntity>();
         }
     }
 }

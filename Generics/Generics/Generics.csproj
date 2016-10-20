@@ -44,8 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MyGuid\MyGuid.cs" />
-    <Compile Include="Processor\Engine.cs" />
-    <Compile Include="Processor\Entity.cs" />
+    <Compile Include="Processor\EntityAdder.cs" />
+    <Compile Include="Processor\LoggerAdder.cs" />
     <Compile Include="Processor\Processor.cs" />
     <Compile Include="Processor\ProcessorBuilder.cs" />
     <Compile Include="Program.cs" />

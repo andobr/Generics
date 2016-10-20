@@ -8,9 +8,9 @@ namespace Generics
 {
     class ProcessorBuilder
     {
-        static public Engine<TEngine> CreateEngine<TEngine>()
+        static public EntityAdder<TEngine> CreateEngine<TEngine>()
         {
-            return new Engine<TEngine>();
+            return new EntityAdder<TEngine>();
         }
     }
 }
